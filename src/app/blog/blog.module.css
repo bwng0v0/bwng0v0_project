@@ -1,0 +1,100 @@
+.container {
+    width: 100%;
+    /* height: 1000px; */
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+}
+/* grid-template-columns: repeat(var(--card-count), calc(var(--width) -(32px* var(--spacer) / var(--card-count)))); */
+
+
+/*
+text-overflow: ellipsis;를 사용하려면
+글씨를 감싸는 태그에 
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+*/
+
+
+.contents {
+    width: 70%; /**/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-rows: repeat(3, minmax(10px, 400px));
+    grid-template-columns: repeat(3, minmax(10px, 400px));
+}
+
+.item {
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+}
+
+.item:hover {
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    background-color: #D9D9D9;
+    width: 100%;
+    height: 45%;
+}
+
+.textbox {
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 55%;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* .text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} */
+.text{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    word-wrap: break-word;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: var(--text2);
+    /* margin: 0 0 1.5rem; */
+}
+
+.itemfooter {
+    margin-top: auto;
+    font-size: 11px;
+}
+
+@media screen and (max-width: 768px){
+    .contents {
+        width: 90%;
+        grid-template-rows: repeat(4, minmax(400px, 400px));
+        grid-template-columns: repeat(2, minmax(10px, 400px));
+    }
+}
